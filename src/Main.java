@@ -17,6 +17,7 @@ public class Main {
         MinSalary(person);
         MaxSalary(person);
         AverageSalary(person);
+        FullName(person);
     }
     public static void ListOfEmploees(Employee[] person) {
         for (int i = 0; i < person.length; i++) {
@@ -55,10 +56,13 @@ public class Main {
     }
     public static void AverageSalary (Employee[] person) {
         int average;
-        average = SalarySum(person) / 10;
+        average = SalarySum(person) / person.length;
         System.out.println("\nСредняя зарплата составила " + average + " рублей");
     }
     public static void FullName (Employee[] person) {
-
+        System.out.println("\nФИО всех сотрудников:");
+        for (int i = 0; i < person.length; i++) {
+            System.out.println(person[i].getName());
+        }
     }
 }
