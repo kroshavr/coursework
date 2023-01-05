@@ -12,18 +12,19 @@ public class Main {
         person[8] = new Employee("Тимофеева София Даниловна", 5, 578000);
         person[9] = new Employee("Буров Иван Дмитриевич", 3, 63000);
 
-        ListOfEmploees(person);
-        SalarySum(person);
-        MinSalary(person);
-        MaxSalary(person);
-        AverageSalary(person);
+        listOfEmploees(person);
+        salarySum(person);
+        minSalary(person);
+        maxSalary(person);
+        averageSalary(person);
+        fullName(person);
     }
-    public static void ListOfEmploees(Employee[] person) {
+    public static void listOfEmploees(Employee[] person) {
         for (int i = 0; i < person.length; i++) {
             System.out.println(person[i]);
         }
     }
-    public static int SalarySum (Employee[] person) {
+    public static int salarySum (Employee[] person) {
         int salarySum = 0;
         for (int i = 0; i < person.length; i++) {
             salarySum = salarySum + person[i].getSalary();
@@ -31,8 +32,8 @@ public class Main {
         System.out.println("\nСумма затрат на зарлпаты за месяц составил " + salarySum);
         return salarySum;
     }
-    public static void MinSalary (Employee[] person) {
-        int min = 5000000;
+    public static void minSalary (Employee[] person) {
+        int min = person[0].getSalary();
         String name = "";
         for (int i = 0; i < person.length; i++) {
            if (person[i].getSalary() < min) {
@@ -42,8 +43,8 @@ public class Main {
         }
         System.out.println("\nМинимальная зарпалата " + min + " рублей у " + name);
     }
-    public static void MaxSalary (Employee[] person) {
-        int max = 10;
+    public static void maxSalary (Employee[] person) {
+        int max = person[0].getSalary();
         String name = "";
         for (int i = 0; i < person.length; i++) {
             if (person[i].getSalary() > max) {
@@ -53,12 +54,15 @@ public class Main {
         }
         System.out.println("\nМаксимальная зарплата " + max + " рублей у " + name);
     }
-    public static void AverageSalary (Employee[] person) {
+    public static void averageSalary (Employee[] person) {
         int average;
-        average = SalarySum(person) / 10;
+        average = salarySum(person) / person.length;
         System.out.println("\nСредняя зарплата составила " + average + " рублей");
     }
-    public static void FullName (Employee[] person) {
-
+    public static void fullName (Employee[] person) {
+        System.out.println("\nФИО всех сотрудников:");
+        for (int i = 0; i < person.length; i++) {
+            System.out.println(person[i].getName());
+        }
     }
 }
